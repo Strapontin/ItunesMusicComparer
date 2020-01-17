@@ -40,7 +40,7 @@
             this.btnChoosePlaylistFile.TabIndex = 0;
             this.btnChoosePlaylistFile.Text = "Choisir les fichiers de playlist";
             this.btnChoosePlaylistFile.UseVisualStyleBackColor = true;
-            this.btnChoosePlaylistFile.Click += new System.EventHandler(this.button1_Click);
+            this.btnChoosePlaylistFile.Click += new System.EventHandler(this.ChoosePlaylistFile);
             // 
             // flpFilesSelected
             // 

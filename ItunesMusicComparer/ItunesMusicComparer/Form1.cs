@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ItunesMusicComparer
 {
     public partial class Form1 : Form
@@ -16,24 +17,27 @@ namespace ItunesMusicComparer
         public Form1()
         {
             InitializeComponent();
-
-
-            var item = new FileListItem();
-            (item.Controls.Find("btnDelete", true) as Button).Click = OnClickDeleteItem();
-
-            flpFilesSelected.Controls.Add(item);
-            flpFilesSelected.Controls.Add(item);
         }
 
-        private void OnClickDeleteItem()
+        /// <summary>
+        /// Lorsque l'on supprime un élément de la liste
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Item_RequestDeleteItem(object sender, EventArgs e)
         {
-
+            flpFilesSelected.Controls.Remove(flpFilesSelected.Controls.Find((sender as FileListItem).Name, true).First());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Lors du clique sur le bouton pour sélectionner des fichiers
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChoosePlaylistFile(object sender, EventArgs e)
         {
             var fileContent = string.Empty;
-            var filePath = string.Empty;
+            var filePaths = new List<string>();
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -46,19 +50,43 @@ namespace ItunesMusicComparer
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     //Get the path of specified file
-                    filePath = openFileDialog.FileName;
+                    filePaths = openFileDialog.SafeFileNames.ToList();
 
-                    //Read the contents of the file into a stream
-                    var fileStream = openFileDialog.OpenFile();
+                    flpFilesSelected.Controls.Clear();
 
-                    using (StreamReader reader = new StreamReader(fileStream))
+                    if (filePaths.Any())
                     {
-                        fileContent = reader.ReadToEnd();
+                        foreach (var item in filePaths)
+                        {
+                            AddFilePathToFLP(item);
+                        }
                     }
+
+                    ////Read the contents of the file into a stream
+                    //var fileStream = openFileDialog.OpenFile();
+
+                    //using (StreamReader reader = new StreamReader(fileStream))
+                    //{
+                    //    fileContent = reader.ReadToEnd();
+                    //}
                 }
             }
 
-            MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
+            //MessageBox.Show(fileContent, "File Content at path: " + filePaths, MessageBoxButtons.OK);
+        }
+
+        /// <summary>
+        /// Ajoute une ligne dans la liste des fichiers sélectionnés
+        /// </summary>
+        /// <param name="path"></param>
+        private void AddFilePathToFLP(string path)
+        {
+            var file = new FileListItem();
+            file.RequestDeleteItem += Item_RequestDeleteItem;
+            file.Name = path;
+            file.LabelName = path;
+
+            flpFilesSelected.Controls.Add(file);
         }
     }
 }

@@ -12,6 +12,14 @@ namespace ItunesMusicComparer
 {
     public partial class FileListItem : UserControl
     {
+        public string LabelName
+        {
+            set
+            {
+                lblTitle.Text = value;
+            }
+        }
+
         public FileListItem()
         {
             InitializeComponent();
@@ -33,13 +41,9 @@ namespace ItunesMusicComparer
         /// <param name="e"></param>
         protected virtual void OnRequestDeleteItem(EventArgs e)
         {
-            EventHandler handler = ThresholdReached;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
+            RequestDeleteItem?.Invoke(this, e);
         }
 
-        public event EventHandler ThresholdReached;
+        public event EventHandler RequestDeleteItem;
     }
 }
