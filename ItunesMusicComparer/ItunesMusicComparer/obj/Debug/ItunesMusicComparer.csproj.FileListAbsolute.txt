@@ -1,0 +1,10 @@
+D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.csprojAssemblyReference.cache
+D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.Form1.resources
+D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.Properties.Resources.resources
+D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.csproj.GenerateResource.cache
+D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\bin\Debug\ItunesMusicComparer.exe.config
+D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\bin\Debug\ItunesMusicComparer.exe
+D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\bin\Debug\ItunesMusicComparer.pdb
+D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.exe
+D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.pdb
+D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.FileListItem.resources
