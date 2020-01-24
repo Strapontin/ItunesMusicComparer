@@ -20,6 +20,16 @@ namespace ItunesMusicComparer
             }
         }
 
+        private string _fullPath;
+        public string FullPath
+        {
+            get => _fullPath;
+            set
+            {
+                _fullPath = value;
+            }
+        }
+
         public FileListItem()
         {
             InitializeComponent();
