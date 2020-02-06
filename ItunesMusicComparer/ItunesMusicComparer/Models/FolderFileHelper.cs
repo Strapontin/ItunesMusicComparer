@@ -25,11 +25,11 @@ namespace ItunesMusicComparer.Models
         /// Ajoute une ligne dans la liste des fichiers sélectionnés
         /// </summary>
         /// <param name="fileName"></param>
-        public void AddFilePathToFLP(string fileName, string fullPath, FlowLayoutPanel flp)
+        public void AddFilePathOrFolderToFLP(string fileName, string fullPath, FlowLayoutPanel flp)
         {
-            if (!FileAlreadySelected(fullPath, flp))
+            if (!FileOrFolderAlreadySelected(fullPath, flp))
             {
-                var file = new FileListItem(fileName, fullPath);
+                var file = new FileListItem(fileName, fullPath, flp);
                 file.RequestDeleteItem += Item_RequestDeleteItem;
                 file.Name = fileName;
 
@@ -42,7 +42,7 @@ namespace ItunesMusicComparer.Models
         /// </summary>
         /// <param name="fullPath"></param>
         /// <returns></returns>
-        private bool FileAlreadySelected(string fullPath, FlowLayoutPanel flp)
+        private bool FileOrFolderAlreadySelected(string fullPath, FlowLayoutPanel flp)
         {
             for (int i = 0; i < flp.Controls.Count; i++)
             {
@@ -52,5 +52,21 @@ namespace ItunesMusicComparer.Models
 
             return false;
         }
+
+        ///// <summary>
+        ///// Ajoute une ligne dans la liste des dossiers sélectionnés
+        ///// </summary>
+        ///// <param name="selectedPath"></param>
+        //internal void AddFolderPathToFLP(string selectedPath, FlowLayoutPanel flp)
+        //{
+        //    if (!FileOrFolderAlreadySelected(selectedPath, flp))
+        //    {
+        //        var item = new FileListItem(selectedPath, selectedPath, flp);
+        //        item.RequestDeleteItem += Item_RequestDeleteItem;
+        //        item.Name = selectedPath;
+
+        //        flp.Controls.Add(item);
+        //    }
+        //}
     }
 }

@@ -60,7 +60,7 @@ namespace ItunesMusicComparer
                         // Ajoute les noms des fichiers dans la liste
                         foreach (var item in filesData)
                         {
-                            ffh.AddFilePathToFLP(item.FileName, item.FullPath, flpFilesSelected);
+                            ffh.AddFilePathOrFolderToFLP(item.FileName, item.FullPath, flpFilesSelected);
                         }
                     }
 
@@ -89,19 +89,24 @@ namespace ItunesMusicComparer
                 // Si on a bien sélectionné un fichier
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
                 {
-                    var files = Directory.GetFiles(folderBrowserDialog.SelectedPath, "*.*", SearchOption.AllDirectories).ToList();
-
-
-                    // On enlève le nom des dossiers pour n'avoir que le nom des fichiers
-                    files.ForEach(file =>
-                    {
-                        file = Path.GetFileNameWithoutExtension(file);
-                    });
+                    // On ajoute le chemin entier dans le FLP
+                    ffh.AddFilePathOrFolderToFLP(folderBrowserDialog.SelectedPath, folderBrowserDialog.SelectedPath, flpFolderSelection);
 
 
 
 
-                    flpFolderSelection.Controls.AddRange(files);
+                    //var files = Directory.GetFiles(folderBrowserDialog.SelectedPath, "*.*", SearchOption.AllDirectories).ToList();
+
+
+                    //// On enlève le nom des dossiers pour n'avoir que le nom des fichiers
+                    //files.ForEach(file =>
+                    //{
+                    //    file = Path.GetFileNameWithoutExtension(file);
+                    //});
+
+
+
+                    //flpFolderSelection.Controls.AddRange(files);
                 }
             }
         }

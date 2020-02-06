@@ -31,12 +31,23 @@ namespace ItunesMusicComparer
             }
         }
 
-        public FileListItem(string name, string fullPath)
+        private FlowLayoutPanel _flp;
+        public FlowLayoutPanel Flp
+        {
+            get => _flp;
+            set
+            {
+                _flp = value;
+            }
+        }
+
+        public FileListItem(string name, string fullPath, FlowLayoutPanel flp)
         {
             InitializeComponent();
 
             LabelName = name;
             FullPath = fullPath;
+            _flp = flp;
         }
 
         /// <summary>
@@ -44,18 +55,20 @@ namespace ItunesMusicComparer
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btn_Click(object sender, ItemDeletedEventArgs e)
+        private void btn_Click(object sender, EventArgs e)
         {
-            OnRequestDeleteItem(ItemDeletedEventArgs.Empty);
+            OnRequestDeleteItem(EventArgs.Empty);
         }
 
         /// <summary>
         /// Lorsque l'on essaye de supprimer l'item
         /// </summary>
         /// <param name="e"></param>
-        protected virtual void OnRequestDeleteItem(ItemDeletedEventArgs e)
+        protected virtual void OnRequestDeleteItem(EventArgs e)
         {
-            RequestDeleteItem?.Invoke(this, e);
+            ItemDeletedEventArgs ev = new ItemDeletedEventArgs(_flp);
+
+            RequestDeleteItem?.Invoke(this, ev);
         }
 
         public event EventHandler<ItemDeletedEventArgs> RequestDeleteItem;
