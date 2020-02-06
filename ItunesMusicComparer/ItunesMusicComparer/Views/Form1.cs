@@ -1,4 +1,5 @@
 ﻿using ItunesMusicComparer.Classes;
+using ItunesMusicComparer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,19 +16,13 @@ namespace ItunesMusicComparer
 {
     public partial class Form1 : Form
     {
+        FolderFileHelper ffh;
+
         public Form1()
         {
             InitializeComponent();
-        }
 
-        /// <summary>
-        /// Lorsque l'on supprime un élément de la liste
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Item_RequestDeleteItem(object sender, EventArgs e)
-        {
-            flpFilesSelected.Controls.Remove(flpFilesSelected.Controls.Find((sender as FileListItem).Name, true).First());
+            ffh = new FolderFileHelper();
         }
 
         /// <summary>
@@ -65,7 +60,7 @@ namespace ItunesMusicComparer
                         // Ajoute les noms des fichiers dans la liste
                         foreach (var item in filesData)
                         {
-                            AddFilePathToFLP(item.FileName, item.FullPath);
+                            ffh.AddFilePathToFLP(item.FileName, item.FullPath, flpFilesSelected);
                         }
                     }
 
@@ -80,40 +75,6 @@ namespace ItunesMusicComparer
             }
 
             //MessageBox.Show(fileContent, "File Content at path: " + filePaths, MessageBoxButtons.OK);
-        }
-
-        /// <summary>
-        /// Ajoute une ligne dans la liste des fichiers sélectionnés
-        /// </summary>
-        /// <param name="fileName"></param>
-        private void AddFilePathToFLP(string fileName, string fullPath)
-        {
-            if (!FileAlreadySelected(fullPath))
-            {
-                var file = new FileListItem();
-                file.RequestDeleteItem += Item_RequestDeleteItem;
-                file.Name = fileName;
-                file.LabelName = fileName;
-                file.FullPath = fullPath;
-
-                flpFilesSelected.Controls.Add(file);
-            }
-        }
-
-        /// <summary>
-        /// Retourne true si le chemin est déjà sélectionné
-        /// </summary>
-        /// <param name="fullPath"></param>
-        /// <returns></returns>
-        private bool FileAlreadySelected(string fullPath)
-        {
-            for (int i = 0; i < flpFilesSelected.Controls.Count; i++)
-            {
-                if ((flpFilesSelected.Controls[i] as FileListItem).FullPath == fullPath)
-                    return true;
-            }
-
-            return false;
         }
 
         /// <summary>
@@ -136,6 +97,8 @@ namespace ItunesMusicComparer
                     {
                         file = Path.GetFileNameWithoutExtension(file);
                     });
+
+
 
 
                     flpFolderSelection.Controls.AddRange(files);

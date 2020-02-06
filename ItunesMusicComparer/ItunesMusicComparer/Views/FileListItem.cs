@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ItunesMusicComparer.Classes;
 
 namespace ItunesMusicComparer
 {
@@ -30,9 +31,12 @@ namespace ItunesMusicComparer
             }
         }
 
-        public FileListItem()
+        public FileListItem(string name, string fullPath)
         {
             InitializeComponent();
+
+            LabelName = name;
+            FullPath = fullPath;
         }
 
         /// <summary>
@@ -40,20 +44,20 @@ namespace ItunesMusicComparer
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btn_Click(object sender, EventArgs e)
+        private void btn_Click(object sender, ItemDeletedEventArgs e)
         {
-            OnRequestDeleteItem(EventArgs.Empty);
+            OnRequestDeleteItem(ItemDeletedEventArgs.Empty);
         }
 
         /// <summary>
         /// Lorsque l'on essaye de supprimer l'item
         /// </summary>
         /// <param name="e"></param>
-        protected virtual void OnRequestDeleteItem(EventArgs e)
+        protected virtual void OnRequestDeleteItem(ItemDeletedEventArgs e)
         {
             RequestDeleteItem?.Invoke(this, e);
         }
 
-        public event EventHandler RequestDeleteItem;
+        public event EventHandler<ItemDeletedEventArgs> RequestDeleteItem;
     }
 }
