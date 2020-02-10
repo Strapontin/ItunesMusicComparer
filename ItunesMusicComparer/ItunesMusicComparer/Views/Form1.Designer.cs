@@ -32,6 +32,7 @@
             this.flpFilesSelected = new System.Windows.Forms.FlowLayoutPanel();
             this.btnChooseFolders = new System.Windows.Forms.Button();
             this.flpFolderSelection = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnFindDifferences = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnChoosePlaylistFile
@@ -71,11 +72,22 @@
             this.flpFolderSelection.Size = new System.Drawing.Size(314, 340);
             this.flpFolderSelection.TabIndex = 0;
             // 
+            // btnFindDifferences
+            // 
+            this.btnFindDifferences.Location = new System.Drawing.Point(354, 203);
+            this.btnFindDifferences.Name = "btnFindDifferences";
+            this.btnFindDifferences.Size = new System.Drawing.Size(153, 132);
+            this.btnFindDifferences.TabIndex = 3;
+            this.btnFindDifferences.Text = "Rechercher les différences";
+            this.btnFindDifferences.UseVisualStyleBackColor = true;
+            this.btnFindDifferences.Click += new System.EventHandler(this.FindDifferences);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 482);
+            this.Controls.Add(this.btnFindDifferences);
             this.Controls.Add(this.flpFolderSelection);
             this.Controls.Add(this.btnChooseFolders);
             this.Controls.Add(this.flpFilesSelected);
@@ -92,6 +104,7 @@
         private System.Windows.Forms.FlowLayoutPanel flpFilesSelected;
         private System.Windows.Forms.Button btnChooseFolders;
         private System.Windows.Forms.FlowLayoutPanel flpFolderSelection;
+        private System.Windows.Forms.Button btnFindDifferences;
     }
 }
 

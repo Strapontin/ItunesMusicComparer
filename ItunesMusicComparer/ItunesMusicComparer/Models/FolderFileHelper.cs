@@ -53,20 +53,14 @@ namespace ItunesMusicComparer.Models
             return false;
         }
 
-        ///// <summary>
-        ///// Ajoute une ligne dans la liste des dossiers sélectionnés
-        ///// </summary>
-        ///// <param name="selectedPath"></param>
-        //internal void AddFolderPathToFLP(string selectedPath, FlowLayoutPanel flp)
-        //{
-        //    if (!FileOrFolderAlreadySelected(selectedPath, flp))
-        //    {
-        //        var item = new FileListItem(selectedPath, selectedPath, flp);
-        //        item.RequestDeleteItem += Item_RequestDeleteItem;
-        //        item.Name = selectedPath;
 
-        //        flp.Controls.Add(item);
-        //    }
-        //}
+        /// <summary>
+        /// Lit les playlists et renvoie une liste des titre/auteur des musiques
+        /// </summary>
+        /// <returns></returns>
+        internal List<MusicCharacteristic> ReadPlaylists(FlowLayoutPanel flp)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

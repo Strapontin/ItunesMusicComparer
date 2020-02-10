@@ -8,3 +8,13 @@ D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer
 D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.exe
 D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.pdb
 D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.FileListItem.resources
+C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.csprojAssemblyReference.cache
+C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.FileListItem.resources
+C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.Form1.resources
+C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.Properties.Resources.resources
+C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.csproj.GenerateResource.cache
+C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.exe
+C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.pdb
+C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\bin\Debug\ItunesMusicComparer.exe.config
+C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\bin\Debug\ItunesMusicComparer.exe
+C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\bin\Debug\ItunesMusicComparer.pdb

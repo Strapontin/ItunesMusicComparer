@@ -110,5 +110,20 @@ namespace ItunesMusicComparer
                 }
             }
         }
+
+        /// <summary>
+        /// Quand on clique sur le bouton pour recherche les musiques manquantes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FindDifferences(object sender, EventArgs e)
+        {
+            // On lit les playlists et les musiques qu'on est censés trouver
+            var allWantedMusicsFromPlaylists = ffh.ReadPlaylists();
+
+
+            // On lit les musiques présentes dans les dossiers sélectionnés
+            //var allMusicsFromFolders = ffh.ReadMusics();
+        }
     }
 }

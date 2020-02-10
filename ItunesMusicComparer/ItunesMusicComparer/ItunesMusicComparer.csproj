@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Classes\FileData.cs" />
     <Compile Include="Classes\ItemDeletedEventArgs.cs" />
+    <Compile Include="Classes\MusicCharacteristic.cs" />
     <Compile Include="Models\FolderFileHelper.cs" />
     <Compile Include="Views\FileListItem.cs">
       <SubType>UserControl</SubType>
