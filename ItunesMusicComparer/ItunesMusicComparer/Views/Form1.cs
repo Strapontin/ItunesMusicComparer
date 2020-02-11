@@ -119,11 +119,11 @@ namespace ItunesMusicComparer
         private void FindDifferences(object sender, EventArgs e)
         {
             // On lit les playlists et les musiques qu'on est censés trouver
-            var allWantedMusicsFromPlaylists = ffh.ReadPlaylists();
+            var allWantedMusicsFromPlaylists = ffh.ReadPlaylists(flpFilesSelected);
 
 
             // On lit les musiques présentes dans les dossiers sélectionnés
-            //var allMusicsFromFolders = ffh.ReadMusics();
+            var allMusicsFromFolders = ffh.ReadMusics(flpFolderSelection);
         }
     }
 }

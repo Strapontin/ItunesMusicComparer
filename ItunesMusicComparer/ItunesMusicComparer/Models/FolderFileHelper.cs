@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ItunesMusicComparer.Models
 {
@@ -60,7 +61,62 @@ namespace ItunesMusicComparer.Models
         /// <returns></returns>
         internal List<MusicCharacteristic> ReadPlaylists(FlowLayoutPanel flp)
         {
-            throw new NotImplementedException();
+            string path;
+            List<string> playlistValue = new List<string>();
+            List<MusicCharacteristic> mc = new List<MusicCharacteristic>();
+
+            for (int i = 0; i < flp.Controls.Count; i++)
+            {
+                path = (flp.Controls[i] as FileListItem).FullPath;
+                playlistValue.AddRange(File.ReadAllLines(path));
+            }
+
+            // On enlève les titres des fichiers
+            playlistValue.RemoveAll(pv => pv.Contains("Nombre de mouvements"));
+
+            playlistValue.ForEach(pv =>
+            {
+                mc.Add(new MusicCharacteristic()
+                {
+                    Title = pv.Split('\t')[0],
+                    Author = pv.Split('\t')[1]
+                });
+            });
+
+            return mc;
+        }
+
+
+        /// <summary>
+        /// Lit les noms des fichiers de musique et renvoie une liste des titres/auteurs
+        /// </summary>
+        /// <param name="flp"></param>
+        /// <returns></returns>
+        internal List<MusicCharacteristic> ReadMusics(FlowLayoutPanel flp)
+        {
+            string path;
+            List<string> files = new List<string>();
+            List<MusicCharacteristic> mc = new List<MusicCharacteristic>();
+            List<string> fileWithoutPath;
+
+            for (int i = 0; i < flp.Controls.Count; i++)
+            {
+                path = (flp.Controls[i] as FileListItem).FullPath;
+                files.AddRange(Directory.GetFiles(path, "*.mp3"));
+            }
+
+            files.ForEach(f =>
+            {
+                fileWithoutPath = Path.GetFileNameWithoutExtension(f).Split('-').ToList();
+
+                mc.Add(new MusicCharacteristic()
+                {
+                    Author = fileWithoutPath[0].Trim(),
+                    Title = fileWithoutPath[1].Trim()
+                });
+            });
+
+            return mc;
         }
     }
 }
