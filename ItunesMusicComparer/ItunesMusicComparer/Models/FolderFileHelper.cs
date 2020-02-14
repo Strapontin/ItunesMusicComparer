@@ -129,13 +129,13 @@ namespace ItunesMusicComparer.Models
 
                 if (fileWithoutPath.Count() == 1)
                 {
-                    author = fileWithoutPath[0].Trim();
-                    title = fileWithoutPath[0].Trim();
+                    author = fileWithoutPath.First().Trim();
+                    title = fileWithoutPath.First().Trim();
                 }
                 else
                 {
-                    author = fileWithoutPath[0].Trim();
-                    title = fileWithoutPath[1].Trim();
+                    author = string.Join("-", fileWithoutPath.Take(fileWithoutPath.Count() - 1)).Trim();
+                    title = fileWithoutPath.Last().Trim();
                 }
 
                 mc.Add(new MusicCharacteristic()

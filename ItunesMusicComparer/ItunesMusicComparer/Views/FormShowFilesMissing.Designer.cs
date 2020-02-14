@@ -39,7 +39,7 @@
             this.flpMusicMissingFromPlaylists.AutoScroll = true;
             this.flpMusicMissingFromPlaylists.Location = new System.Drawing.Point(12, 31);
             this.flpMusicMissingFromPlaylists.Name = "flpMusicMissingFromPlaylists";
-            this.flpMusicMissingFromPlaylists.Size = new System.Drawing.Size(671, 407);
+            this.flpMusicMissingFromPlaylists.Size = new System.Drawing.Size(542, 407);
             this.flpMusicMissingFromPlaylists.TabIndex = 0;
             // 
             // label1
@@ -63,9 +63,9 @@
             // flpMusicsMissingFromFolders
             // 
             this.flpMusicsMissingFromFolders.AutoScroll = true;
-            this.flpMusicsMissingFromFolders.Location = new System.Drawing.Point(689, 31);
+            this.flpMusicsMissingFromFolders.Location = new System.Drawing.Point(560, 31);
             this.flpMusicsMissingFromFolders.Name = "flpMusicsMissingFromFolders";
-            this.flpMusicsMissingFromFolders.Size = new System.Drawing.Size(341, 407);
+            this.flpMusicsMissingFromFolders.Size = new System.Drawing.Size(470, 407);
             this.flpMusicsMissingFromFolders.TabIndex = 2;
             // 
             // FormShowFilesMissing
