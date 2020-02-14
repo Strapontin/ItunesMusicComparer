@@ -1,5 +1,6 @@
 ﻿using ItunesMusicComparer.Classes;
 using ItunesMusicComparer.Models;
+using ItunesMusicComparer.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -91,22 +92,6 @@ namespace ItunesMusicComparer
                 {
                     // On ajoute le chemin entier dans le FLP
                     ffh.AddFilePathOrFolderToFLP(folderBrowserDialog.SelectedPath, folderBrowserDialog.SelectedPath, flpFolderSelection);
-
-
-
-
-                    //var files = Directory.GetFiles(folderBrowserDialog.SelectedPath, "*.*", SearchOption.AllDirectories).ToList();
-
-
-                    //// On enlève le nom des dossiers pour n'avoir que le nom des fichiers
-                    //files.ForEach(file =>
-                    //{
-                    //    file = Path.GetFileNameWithoutExtension(file);
-                    //});
-
-
-
-                    //flpFolderSelection.Controls.AddRange(files);
                 }
             }
         }
@@ -124,6 +109,36 @@ namespace ItunesMusicComparer
 
             // On lit les musiques présentes dans les dossiers sélectionnés
             var allMusicsFromFolders = ffh.ReadMusics(flpFolderSelection);
+
+
+            // On cherche toutes les musiques présentes dans une variable et pas dans l'autre pour l'afficher dans l'autre fenêtre
+            List<MusicCharacteristic> musicsMissingFromPlaylists = new List<MusicCharacteristic>();
+            List<MusicCharacteristic> musicsMissingFromFolders = new List<MusicCharacteristic>();
+
+            var form = new FormShowFilesMissing();
+
+
+            foreach (var mfp in allWantedMusicsFromPlaylists)
+            {
+                if (!allMusicsFromFolders.Any(fromFolder => fromFolder.Author == mfp.Author && fromFolder.Title == mfp.Title))
+                {
+                    musicsMissingFromFolders.Add(mfp);
+                }
+            }
+
+            form.ClearMusicMissingFromPlaylist();
+
+            foreach (var mff in allMusicsFromFolders)
+            {
+                if (!allWantedMusicsFromPlaylists.Any(fromPlaylist => fromPlaylist.Author == mff.Author && fromPlaylist.Title == mff.Title))
+                {
+                    form.AddMusicMissingFromPlaylist(mff);
+                    //musicsMissingFromPlaylists.Add(mff);
+                }
+            }
+
+
+            form.Show();
         }
     }
 }

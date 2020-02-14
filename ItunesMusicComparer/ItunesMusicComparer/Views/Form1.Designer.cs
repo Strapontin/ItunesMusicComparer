@@ -67,6 +67,8 @@
             // 
             // flpFolderSelection
             // 
+            this.flpFolderSelection.AutoScroll = true;
+            this.flpFolderSelection.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpFolderSelection.Location = new System.Drawing.Point(513, 112);
             this.flpFolderSelection.Name = "flpFolderSelection";
             this.flpFolderSelection.Size = new System.Drawing.Size(314, 340);

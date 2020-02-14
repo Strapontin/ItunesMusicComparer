@@ -38,6 +38,21 @@ namespace ItunesMusicComparer.Models
             }
         }
 
+
+        /// <summary>
+        /// Ajoute une musique dans la liste des fichiers sélectionnés
+        /// </summary>
+        /// <param name="fileName"></param>
+        public void AddMusicPathOrFolderToFLP(string songName, string songAuthor, FlowLayoutPanel flp)
+        {
+            var file = new FileListItem(songAuthor + " - " + songName, string.Empty, flp);
+            file.RequestDeleteItem += Item_RequestDeleteItem;
+            file.Name = songAuthor + " " + songName;
+
+            flp.Controls.Add(file);
+        }
+
+
         /// <summary>
         /// Retourne true si le chemin est déjà sélectionné
         /// </summary>
@@ -99,6 +114,9 @@ namespace ItunesMusicComparer.Models
             List<MusicCharacteristic> mc = new List<MusicCharacteristic>();
             List<string> fileWithoutPath;
 
+            string author;
+            string title;
+
             for (int i = 0; i < flp.Controls.Count; i++)
             {
                 path = (flp.Controls[i] as FileListItem).FullPath;
@@ -109,10 +127,21 @@ namespace ItunesMusicComparer.Models
             {
                 fileWithoutPath = Path.GetFileNameWithoutExtension(f).Split('-').ToList();
 
+                if (fileWithoutPath.Count() == 1)
+                {
+                    author = fileWithoutPath[0].Trim();
+                    title = fileWithoutPath[0].Trim();
+                }
+                else
+                {
+                    author = fileWithoutPath[0].Trim();
+                    title = fileWithoutPath[1].Trim();
+                }
+
                 mc.Add(new MusicCharacteristic()
                 {
-                    Author = fileWithoutPath[0].Trim(),
-                    Title = fileWithoutPath[1].Trim()
+                    Author = author,
+                    Title = title
                 });
             });
 

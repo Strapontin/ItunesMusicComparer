@@ -18,3 +18,4 @@ C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicCompare
 C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\bin\Debug\ItunesMusicComparer.exe.config
 C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\bin\Debug\ItunesMusicComparer.exe
 C:\Users\Anthony\Documents\Git repository\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\bin\Debug\ItunesMusicComparer.pdb
+D:\Anthony\Documents\ItunesMusicComparer\ItunesMusicComparer\ItunesMusicComparer\obj\Debug\ItunesMusicComparer.Views.FormShowFilesMissing.resources
